@@ -42,27 +42,13 @@ export class AuthenticateUseCase {
 
     if (!isValidPassword) return left(new WrongCredentialsError());
 
-    const user = User.create(
-      {
-        name: Name.create({
-          firstName: userAlreadyExists.name.firstName,
-          lastName: userAlreadyExists.name.lastName,
-        }),
-        email: userAlreadyExists.email,
-        password: userAlreadyExists.password,
-        avatarUrl: userAlreadyExists.avatarUrl,
-        createdAt: new Date(userAlreadyExists.createdAt),
-      },
-      new UniqueEntityId(userAlreadyExists.id.toString()),
-    );
-
     const accessToken = await this.encrypter.encrypt({
-      sub: user.id.toString(),
+      sub: userAlreadyExists.id.toString(),
     });
 
     return right({
       accessToken,
-      user,
+      user: userAlreadyExists,
     });
   }
 }
