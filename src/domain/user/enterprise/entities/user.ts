@@ -21,7 +21,7 @@ export class User extends Entity<UserProps> {
   }
 
   get password() {
-    return this.props.email;
+    return this.props.password;
   }
 
   get avatarUrl() {

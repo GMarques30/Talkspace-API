@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "ts-node src/main.ts"
+    "dev": "ts-node src/main.ts",
+    "test:unit": "vitest run",
+    "test:watch": "vitest"
   },
   "keywords": [],
   "author": "",
@@ -11,11 +13,16 @@
   "description": "",
   "devDependencies": {
     "@types/node": "^20.12.12",
+    "@types/supertest": "^6.0.2",
+    "@vitest/coverage-v8": "^1.6.0",
     "eslint": "^9.3.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.1.3",
     "prettier": "^3.2.5",
+    "supertest": "^7.0.0",
     "ts-node": "^10.9.2",
-    "typescript": "^5.4.5"
+    "typescript": "^5.4.5",
+    "unplugin-swc": "^1.4.5",
+    "vitest": "^1.6.0"
   }
 }
