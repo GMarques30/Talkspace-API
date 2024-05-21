@@ -4,6 +4,7 @@ import { FakeEncrypter } from './../../../../../test/cryptography/fake-encrypter
 import { FakeHasher } from './../../../../../test/cryptography/fake-hasher';
 import { InMemoryUsersRepository } from './../../../../../test/repositories/in-memory-users-repository';
 import { AuthenticateUseCase } from './authenticate';
+import { WrongCredentialsError } from './errors/wrong-credentials.error';
 
 describe('Authenticate Use Case', () => {
   let fakeEncrypter: FakeEncrypter;
@@ -46,5 +47,15 @@ describe('Authenticate Use Case', () => {
         user,
       }),
     );
+  });
+
+  it('should not be able authenticate a user that doesnt exist', async () => {
+    const result = await sut.execute({
+      email: 'usernotexists@example.com',
+      password: 'usernotexits',
+    });
+
+    expect(result.isLeft()).toBeTruthy();
+    expect(result.value).toBeInstanceOf(WrongCredentialsError);
   });
 });
