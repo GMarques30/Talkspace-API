@@ -1,7 +1,7 @@
 import { FakeHasher } from './../../../../../test/cryptography/fake-hasher';
 import { InMemoryUsersRepository } from 'test/repositories/in-memory-users-repository';
 import { CreateAccountUseCase } from './create-account';
-import { UniqueEntityId } from 'src/core/entities/unique-entity-id';
+import { UserAlreadyExistsError } from './errors/user-already-exists-error';
 
 describe('Create Account Use Case', () => {
   let fakeHasher: FakeHasher;
@@ -40,5 +40,24 @@ describe('Create Account Use Case', () => {
 
     expect(result.isRight()).toBeTruthy();
     expect(inMemoryUsersRepository.users[0].password).toEqual(hashedPassword);
+  });
+
+  it('should not be able create a account that exists', async () => {
+    await sut.execute({
+      firstName: 'John',
+      lastName: 'Doe',
+      email: 'johndoe@example.com',
+      password: '123456',
+    });
+
+    const result = await sut.execute({
+      firstName: 'John',
+      lastName: 'Doe',
+      email: 'johndoe@example.com',
+      password: '123456',
+    });
+
+    expect(result.isLeft()).toBeTruthy();
+    expect(result.value).toBeInstanceOf(UserAlreadyExistsError);
   });
 });
