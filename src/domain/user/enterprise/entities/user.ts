@@ -16,16 +16,32 @@ export class User extends Entity<UserProps> {
     return this.props.name;
   }
 
+  set name(name: Name) {
+    this.props.name = name;
+  }
+
   get email() {
     return this.props.email;
+  }
+
+  set email(email: string) {
+    this.props.email = email;
   }
 
   get password() {
     return this.props.password;
   }
 
+  set password(password: string) {
+    this.props.password = password;
+  }
+
   get avatarUrl() {
     return this.props.avatarUrl;
+  }
+
+  set avatarUrl(avatarUrl: string) {
+    this.props.avatarUrl = avatarUrl;
   }
 
   get createdAt() {
