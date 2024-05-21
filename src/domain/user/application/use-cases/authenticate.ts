@@ -1,7 +1,7 @@
 import { Encrypter } from 'src/domain/user/application/cryptography/encrypter';
 import { HashComparer } from 'src/domain/user/application/cryptography/hash-comparer';
 import { UsersRepository } from '../repositories/users-repository';
-import { left, right } from 'src/core/either';
+import { Either, left, right } from 'src/core/either';
 import { WrongCredentialsError } from './errors/wrong-credentials.error';
 import { User } from '../../enterprise/entities/user';
 import { Name } from '../../enterprise/entities/value-objects/Name';
@@ -12,6 +12,14 @@ interface AuthenticateInput {
   password: string;
 }
 
+type AuthenticateOutput = Either<
+  WrongCredentialsError,
+  {
+    accessToken: string;
+    user: User;
+  }
+>;
+
 export class AuthenticateUseCase {
   constructor(
     private usersRepository: UsersRepository,
@@ -19,7 +27,10 @@ export class AuthenticateUseCase {
     private encrypter: Encrypter,
   ) {}
 
-  async execute({ email, password }: AuthenticateInput) {
+  async execute({
+    email,
+    password,
+  }: AuthenticateInput): Promise<AuthenticateOutput> {
     const userAlreadyExists = await this.usersRepository.findUserByEmail(email);
 
     if (!userAlreadyExists) return left(new WrongCredentialsError());
