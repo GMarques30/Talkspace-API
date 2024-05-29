@@ -38,10 +38,7 @@ export class CreateAccountUseCase {
     const hashedPassword = await this.hashGenerator.hash(password);
 
     const user = User.create({
-      name: Name.create({
-        firstName,
-        lastName,
-      }),
+      name: Name.create({ firstName, lastName }),
       email,
       password: hashedPassword,
     });
