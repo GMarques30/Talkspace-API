@@ -23,7 +23,7 @@ describe('Authenticate Use Case', () => {
     );
   });
 
-  it('shoudl be able authenticate a user', async () => {
+  it('should be able authenticate a user', async () => {
     const user = User.create({
       name: Name.create({
         firstName: 'John',
