@@ -1,4 +1,4 @@
-import { ValueObject } from './../../../../../core/entities/value-object';
+import { ValueObject } from '../../../../../core/entities/value-object';
 
 export interface NameProps {
   firstName: string;

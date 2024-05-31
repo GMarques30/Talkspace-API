@@ -1,7 +1,7 @@
 import { Optional } from './../../../../core/types/optional';
 import { UniqueEntityId } from './../../../../core/entities/unique-entity-id';
 import { Entity } from './../../../../core/entities/entity';
-import { Name } from './value-objects/Name';
+import { Name } from './value-objects/name';
 
 export interface UserProps {
   name: Name;

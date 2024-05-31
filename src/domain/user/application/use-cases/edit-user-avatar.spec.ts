@@ -2,7 +2,7 @@ import { InMemoryUsersRepository } from 'test/repositories/in-memory-users-repos
 import { FakeUploader } from 'test/storage/fake-uploader';
 import { EditUserAvatarUseCase } from './edit-user-avatar';
 import { User } from '../../enterprise/entities/user';
-import { Name } from '../../enterprise/entities/value-objects/Name';
+import { Name } from '../../enterprise/entities/value-objects/name';
 import { InvalidAvatarType } from './errors/invalid-avatar-type';
 
 describe('Edit User Avatar Use Case', () => {

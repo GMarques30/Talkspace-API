@@ -4,7 +4,7 @@ import { HashGenerator } from 'src/domain/user/application/cryptography/hash-gen
 import { Either, left } from 'src/core/either';
 import { UsersRepository } from '../repositories/users-repository';
 import { User } from '../../enterprise/entities/user';
-import { Name } from '../../enterprise/entities/value-objects/Name';
+import { Name } from '../../enterprise/entities/value-objects/name';
 import { UserNotFoundError } from './errors/user-not-found-error';
 import { EmailAlreadyUsedByUserError } from './errors/email-already-used-by-user-error';
 import { InformOldPasswordToSetNewPasswordError } from './errors/inform-old-password-set-new-password-error';

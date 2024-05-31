@@ -2,10 +2,8 @@ import { Encrypter } from 'src/domain/user/application/cryptography/encrypter';
 import { HashComparer } from 'src/domain/user/application/cryptography/hash-comparer';
 import { UsersRepository } from '../repositories/users-repository';
 import { Either, left, right } from 'src/core/either';
-import { WrongCredentialsError } from './errors/wrong-credentials.error';
+import { WrongCredentialsError } from './errors/wrong-credentials-error';
 import { User } from '../../enterprise/entities/user';
-import { Name } from '../../enterprise/entities/value-objects/Name';
-import { UniqueEntityId } from 'src/core/entities/unique-entity-id';
 
 interface AuthenticateInput {
   email: string;

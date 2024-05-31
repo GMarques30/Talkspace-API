@@ -3,7 +3,7 @@ import { InMemoryUsersRepository } from 'test/repositories/in-memory-users-repos
 import { UsersRepository } from './../repositories/users-repository';
 import { GetProfileUseCase } from './get-profile';
 import { User } from '../../enterprise/entities/user';
-import { Name } from '../../enterprise/entities/value-objects/Name';
+import { Name } from '../../enterprise/entities/value-objects/name';
 import { UniqueEntityId } from 'src/core/entities/unique-entity-id';
 
 describe('Get Profile Use Case', () => {

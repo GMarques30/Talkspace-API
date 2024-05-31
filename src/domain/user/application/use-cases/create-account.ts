@@ -3,7 +3,7 @@ import { UsersRepository } from '../repositories/users-repository';
 import { UserAlreadyExistsError } from './errors/user-already-exists-error';
 import { HashGenerator } from '../cryptography/hash-generator';
 import { User } from '../../enterprise/entities/user';
-import { Name } from '../../enterprise/entities/value-objects/Name';
+import { Name } from '../../enterprise/entities/value-objects/name';
 
 interface CreateAccountInput {
   firstName: string;

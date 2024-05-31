@@ -3,7 +3,7 @@ import { FakeHasher } from 'test/cryptography/fake-hasher';
 import { InMemoryUsersRepository } from './../../../../../test/repositories/in-memory-users-repository';
 import { EditUserProfileUseCase } from './edit-user-profile';
 import { User } from '../../enterprise/entities/user';
-import { Name } from '../../enterprise/entities/value-objects/Name';
+import { Name } from '../../enterprise/entities/value-objects/name';
 import { EmailAlreadyUsedByUserError } from './errors/email-already-used-by-user-error';
 import { InformOldPasswordToSetNewPasswordError } from './errors/inform-old-password-set-new-password-error';
 import { PasswordDoesNotMatchError } from './errors/password-does-not-match-error';

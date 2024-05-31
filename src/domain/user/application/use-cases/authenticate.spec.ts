@@ -1,10 +1,10 @@
 import { User } from '../../enterprise/entities/user';
-import { Name } from '../../enterprise/entities/value-objects/Name';
+import { Name } from '../../enterprise/entities/value-objects/name';
 import { FakeEncrypter } from './../../../../../test/cryptography/fake-encrypter';
 import { FakeHasher } from './../../../../../test/cryptography/fake-hasher';
 import { InMemoryUsersRepository } from './../../../../../test/repositories/in-memory-users-repository';
 import { AuthenticateUseCase } from './authenticate';
-import { WrongCredentialsError } from './errors/wrong-credentials.error';
+import { WrongCredentialsError } from './errors/wrong-credentials-error';
 
 describe('Authenticate Use Case', () => {
   let fakeEncrypter: FakeEncrypter;

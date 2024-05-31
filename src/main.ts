@@ -1,16 +1,11 @@
-import { User } from './domain/user/enterprise/entities/user';
-import { Name } from './domain/user/enterprise/entities/value-objects/Name';
+import { UniqueEntityId } from './core/entities/unique-entity-id';
+import { UserToken } from './domain/user/enterprise/entities/token';
 
 function main() {
-  const user = User.create({
-    name: Name.create({
-      firstName: 'Giovanni',
-      lastName: 'Marques',
-    }),
-    email: 'giovanni@example.com',
-    password: '123456',
+  const userToken = UserToken.create({
+    userId: new UniqueEntityId().toString(),
   });
 
-  console.log(user.name);
+  console.log(userToken);
 }
 main();
